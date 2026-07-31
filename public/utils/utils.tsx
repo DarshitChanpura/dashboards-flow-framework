@@ -1232,3 +1232,26 @@ export function isKnownEmbeddingModel(
     embeddingUrlPatterns.some((p) => url.includes(p))
   );
 }
+
+/**
+ * Resource type registered by the flow-framework backend plugin with the
+ * security plugin's resource-sharing framework.
+ */
+export const WORKFLOW_RESOURCE_TYPE = 'workflow';
+
+/**
+ * Whether resource sharing is available for workflows, via the core
+ * capability registered by security-dashboards-plugin. False when that plugin
+ * is not installed, the feature is disabled, or the workflow type is not
+ * registered — no plugin dependency involved.
+ */
+export function isResourceSharingAvailable(): boolean {
+  try {
+    const caps = (getCore().application.capabilities as any)?.resourceSharing;
+    if (!caps?.enabled) return false;
+    const types: string = caps.availableTypes ?? '';
+    return types.split(',').includes(WORKFLOW_RESOURCE_TYPE);
+  } catch (e) {
+    return false;
+  }
+}
