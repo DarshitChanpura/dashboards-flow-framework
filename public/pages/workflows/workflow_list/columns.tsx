@@ -67,13 +67,14 @@ export const columns = (actions: any[]) => {
             // Resource-sharing SPI marker column: the centralized Share button
             // is mounted here by security-dashboards-plugin when installed and
             // resource sharing is enabled for workflows.
-            name: 'Share',
+            name: 'Access',
             width: '5%',
             render: (workflow: Workflow) => (
               <div
                 data-resource-share-button
                 data-resource-id={workflow.id}
                 data-resource-type={WORKFLOW_RESOURCE_TYPE}
+                {...(workflow.name ? { 'data-resource-name': workflow.name } : {})}
                 data-resource-share-display="icon"
                 {...(dataSourceId
                   ? { 'data-resource-data-source-id': dataSourceId }
