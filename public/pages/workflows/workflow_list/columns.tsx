@@ -74,7 +74,9 @@ export const columns = (actions: any[]) => {
                 data-resource-share-button
                 data-resource-id={workflow.id}
                 data-resource-type={WORKFLOW_RESOURCE_TYPE}
-                {...(workflow.name ? { 'data-resource-name': workflow.name } : {})}
+                {...(workflow.name
+                  ? { 'data-resource-name': workflow.name }
+                  : {})}
                 data-resource-share-display="icon"
                 {...(dataSourceId
                   ? { 'data-resource-data-source-id': dataSourceId }
