@@ -16,7 +16,7 @@ import {
   constructHrefWithDataSourceId,
   getDataSourceId,
   isResourceSharingAvailable,
-  WORKFLOW_RESOURCE_TYPE,
+  SHAREABLE_WORKFLOW_RESOURCE_TYPE,
 } from '../../../utils/utils';
 
 export const columns = (actions: any[]) => {
@@ -73,7 +73,7 @@ export const columns = (actions: any[]) => {
               <div
                 data-resource-share-button
                 data-resource-id={workflow.id}
-                data-resource-type={WORKFLOW_RESOURCE_TYPE}
+                data-resource-type={SHAREABLE_WORKFLOW_RESOURCE_TYPE}
                 {...(workflow.name
                   ? { 'data-resource-name': workflow.name }
                   : {})}

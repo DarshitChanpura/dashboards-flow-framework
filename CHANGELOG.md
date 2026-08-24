@@ -5,6 +5,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased 3.x](https://github.com/opensearch-project/dashboards-flow-framework/compare/3.6...HEAD)
 ### Features
+- Integrate centralized resource-sharing share button for workflows ([#909](https://github.com/opensearch-project/dashboards-flow-framework/pull/909))
 ### Enhancements
 - Opt out of AnalyticEngine data sources ([#892](https://github.com/opensearch-project/dashboards-flow-framework/pull/892))
 - Update Inspect tab to Search ([#844](https://github.com/opensearch-project/dashboards-flow-framework/pull/844))

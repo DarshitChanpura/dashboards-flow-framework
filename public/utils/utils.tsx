@@ -1237,7 +1237,7 @@ export function isKnownEmbeddingModel(
  * Resource type registered by the flow-framework backend plugin with the
  * security plugin's resource-sharing framework.
  */
-export const WORKFLOW_RESOURCE_TYPE = 'workflow';
+export const SHAREABLE_WORKFLOW_RESOURCE_TYPE = 'workflow';
 
 /**
  * Whether resource sharing is available for workflows, via the core
@@ -1250,7 +1250,7 @@ export function isResourceSharingAvailable(): boolean {
     const caps = (getCore().application.capabilities as any)?.resourceSharing;
     if (!caps?.enabled) return false;
     const types: string = caps.availableTypes ?? '';
-    return types.split(',').includes(WORKFLOW_RESOURCE_TYPE);
+    return types.split(',').includes(SHAREABLE_WORKFLOW_RESOURCE_TYPE);
   } catch (e) {
     return false;
   }
