@@ -15,6 +15,8 @@ import {
 import {
   constructHrefWithDataSourceId,
   getDataSourceId,
+  isResourceSharingAvailable,
+  SHAREABLE_WORKFLOW_RESOURCE_TYPE,
 } from '../../../utils/utils';
 
 export const columns = (actions: any[]) => {
@@ -59,6 +61,31 @@ export const columns = (actions: any[]) => {
           ? toFormattedDate(lastUpdated)
           : EMPTY_FIELD_STRING,
     },
+    ...(isResourceSharingAvailable()
+      ? [
+          {
+            // Resource-sharing SPI marker column: the centralized Share button
+            // is mounted here by security-dashboards-plugin when installed and
+            // resource sharing is enabled for workflows.
+            name: 'Access',
+            width: '5%',
+            render: (workflow: Workflow) => (
+              <div
+                data-resource-share-button
+                data-resource-id={workflow.id}
+                data-resource-type={SHAREABLE_WORKFLOW_RESOURCE_TYPE}
+                {...(workflow.name
+                  ? { 'data-resource-name': workflow.name }
+                  : {})}
+                data-resource-share-display="icon"
+                {...(dataSourceId
+                  ? { 'data-resource-data-source-id': dataSourceId }
+                  : {})}
+              />
+            ),
+          },
+        ]
+      : []),
     {
       name: 'Actions',
       width: '10%',
