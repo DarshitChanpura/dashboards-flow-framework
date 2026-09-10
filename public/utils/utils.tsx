@@ -1240,11 +1240,8 @@ export function isKnownEmbeddingModel(
 export const SHAREABLE_WORKFLOW_RESOURCE_TYPE = 'workflow';
 
 /**
- * Fetch the shareable resource types available on the given data source (or
- * the local cluster when no data source id is passed), via the routes
- * registered by security-dashboards-plugin. Returns [] when that plugin is
- * not installed, resource sharing is disabled on that source, or the request
- * fails — no plugin dependency involved.
+ * Resource-sharing types available on the given data source (feature flag +
+ * per-type list). Returns [] when disabled or on error.
  */
 export const getResourceSharingAvailableTypes = async (
   resourceDataSourceId?: string
