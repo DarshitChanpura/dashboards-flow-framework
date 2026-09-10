@@ -15,6 +15,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 - Add agentic memory support for conversational agents ([#883](https://github.com/opensearch-project/dashboards-flow-framework/pull/883))
 ### Bug Fixes
 ### Infrastructure
+- Pin Cypress to the functional-test lockfile version via `npm ci` in the remote integration test workflow ([#915](https://github.com/opensearch-project/dashboards-flow-framework/pull/915))
 - Add unit tests for utility functions to increase test coverage ([#862](https://github.com/opensearch-project/dashboards-flow-framework/pull/862))
 - Fix flaky tests by replacing singleton store with mock store ([#878](https://github.com/opensearch-project/dashboards-flow-framework/pull/878))
 - Clean up CI workflows: update actions, fix yarn version bug, remove dead code ([#861](https://github.com/opensearch-project/dashboards-flow-framework/pull/861))
